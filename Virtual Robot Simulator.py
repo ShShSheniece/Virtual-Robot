@@ -6,6 +6,17 @@ root.geometry("800x400")
 root.title("Virtual Robot Simulator")
 root.configure(bg = "black")
 
+def Exit():
+    root.destroy()
+
+def Refresh():
+    easyP.destroy()
+    intermediateP.destroy()
+    hardP.destroy()
+    selectDiff.pack()
+    easyP.__init__()
+    intermediateP.__init__()
+    hardP.__init__()
 
 def Launch():
     startP.pack()
@@ -17,8 +28,10 @@ def Launch():
 
 def Difficulty():
     selectDiff.pack()
-    homeB = Button(root, text = "Home", bg = "black", fg = "snow", font = ("Bauhaus 93", 20), command = Difficulty)
+    homeB = Button(root, text = "Home", bg = "black", fg = "snow", font = ("Bauhaus 93", 20), command = Refresh)
     homeB.place(relx = 1, x = -2, y = 2, anchor = NE)
+    exitB = Button(root, text = "Exit", bg = "black", fg = "snow", font = ("Bauhaus 93", 20), command = Exit ) # Exit button - SHENIECE
+    exitB.place(anchor = NW)
     startP.pack_forget()
     easyP.pack_forget()
     intermediateP.pack_forget()
